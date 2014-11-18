@@ -12,7 +12,7 @@ Sequence: [BQSquare_416x240_60_qp27.bin](HEVC Sequences/BQSquare_416x240_60_qp27
 | :------------- | :----------- | :----------- |:-----------: |
 | DecodingPictureBuffer      |getPix|PAPI_TOT_INS|c0|
 |     |isNewSlice|PAPI_TOT_INS|c0|
-| InterPrediction      |getWeightDenom.skip|PAPI_TOT_INS|c|
+| InterPrediction      |getWeightDenom.skip|PAPI_TOT_INS|c0|
 |     |getAllSamples.done|PAPI_TOT_INS|c0|
 
 [XDF](test1/Top_mpegh_part2_main.xcf)
