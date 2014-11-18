@@ -21,7 +21,7 @@ Two actors/two actions papified, everything in the same core.
 |Sequence |[BQSquare_416x240_60_qp27.bin](HEVC Sequences/BQSquare_416x240_60_qp27.bin)|
 |XCF      |[test1/Top_mpegh_part2_main.xcf](test1/Top_mpegh_part2_main.xcf)|
 |Date     ||
-|Rsults   ||
+|Results   ||
 
 
 ##Test 2
@@ -42,4 +42,4 @@ Two actors/two actions papified, one in each core.
 |Sequence |[BQSquare_416x240_60_qp27.bin](HEVC Sequences/BQSquare_416x240_60_qp27.bin)|
 |XCF      |[test2/Top_mpegh_part2_main.xcf](test2/Top_mpegh_part2_main.xcf)|
 |Date     ||
-|Rsults   ||
+|Results   ||
