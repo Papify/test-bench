@@ -38,7 +38,7 @@ Date:
 
 Results
 
-####test 1
+####test 2
 Hardware: [gdem8](sys_info/gdem8)
 
 Sequence: [BQSquare_416x240_60_qp27.bin](HEVC Sequences/BQSquare_416x240_60_qp27.bin)
