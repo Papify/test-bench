@@ -2,10 +2,8 @@
 <Configuration>
 	<Partitioning>
 		<Partition id="1">
-			<Instance id="HevcDecoder_DecodingPictureBuffer"/>
-		</Partition>
-		<Partition id="2">
 			<Instance id="HevcDecoder_IntraPrediction"/>
+			<Instance id="HevcDecoder_DecodingPictureBuffer"/>
 		</Partition>
 		<!-- Unmapped id="Source" -->
 		<!-- Unmapped id="display" -->

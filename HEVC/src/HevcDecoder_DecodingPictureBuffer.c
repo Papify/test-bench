@@ -10,6 +10,9 @@
 #include "scheduler.h"
 #include "dataflow.h"
 #include "cycle.h"
+#include "eventLib.h"
+FILE* papi_output_HevcDecoder_DecodingPictureBuffer;
+papi_action_s *Papi_actions_HevcDecoder_DecodingPictureBuffer;
 
 #define SIZE 8192
 
@@ -927,6 +930,8 @@ static i32 isSchedulable_getPix() {
 
 static void getPix() {
 
+	/* Here goes PAPI init action code */
+	event_start(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet), -1);
 	u16 xPixIdx;
 	u16 yPixIdx;
 	u32 tokenOffset;
@@ -997,11 +1002,20 @@ static void getPix() {
 	// Update ports indexes
 	index_Sample += 384;
 	read_end_Sample();
+	event_stop(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet), Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize, Papi_actions_HevcDecoder_DecodingPictureBuffer[0].counterValues, -1);
+	papi_output_HevcDecoder_DecodingPictureBuffer = fopen("papi-output/papi_output_HevcDecoder_DecodingPictureBuffer.csv","a+");
+	fprintf(papi_output_HevcDecoder_DecodingPictureBuffer,
+		"\"%s\";\"%s\";\"%lu\"\n",
+		"HevcDecoder_DecodingPictureBuffer", Papi_actions_HevcDecoder_DecodingPictureBuffer[0].action_id,
+		Papi_actions_HevcDecoder_DecodingPictureBuffer[0].counterValues[0]);
+	fclose(papi_output_HevcDecoder_DecodingPictureBuffer);
 
 	rate_Sample += 384;
 }
 static void getPix_aligned() {
 
+	/* Here goes PAPI init action code */
+	event_start(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet), -1);
 	u16 xPixIdx;
 	u16 yPixIdx;
 	u32 tokenOffset;
@@ -1072,21 +1086,28 @@ static void getPix_aligned() {
 	// Update ports indexes
 	index_Sample += 384;
 	read_end_Sample();
+	event_stop(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet), Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize, Papi_actions_HevcDecoder_DecodingPictureBuffer[0].counterValues, -1);
+	papi_output_HevcDecoder_DecodingPictureBuffer = fopen("papi-output/papi_output_HevcDecoder_DecodingPictureBuffer.csv","a+");
+	fprintf(papi_output_HevcDecoder_DecodingPictureBuffer,
+		"\"%s\";\"%s\";\"%lu\"\n",
+		"HevcDecoder_DecodingPictureBuffer", Papi_actions_HevcDecoder_DecodingPictureBuffer[0].action_id,
+		Papi_actions_HevcDecoder_DecodingPictureBuffer[0].counterValues[0]);
+	fclose(papi_output_HevcDecoder_DecodingPictureBuffer);
 
 	rate_Sample += 384;
 }
 static i32 isSchedulable_isNewSlice() {
 	i32 result;
-	u8 isRead;
 	u8 isPicSlc;
 	i16 poc;
+	u8 isRead;
 	i16 local_currIdx;
 	i32 tmp_if;
 	i16 tmp_pocRef;
 
-	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
 	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
 	poc = tokens_Poc[(index_Poc + (0)) % SIZE_Poc];
+	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
 	local_currIdx = currIdx;
 	if (local_currIdx == -1) {
 		tmp_if = 0;
@@ -1101,6 +1122,8 @@ static i32 isSchedulable_isNewSlice() {
 
 static void isNewSlice() {
 
+	/* Here goes PAPI init action code */
+	event_start(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet), -1);
 	u8 isRead;
 	u16 picWidthInPix;
 	u16 picHeightInPix;
@@ -1129,6 +1152,13 @@ static void isNewSlice() {
 	read_end_PicSize();
 	index_Poc += 1;
 	index_IsPicSlc += 1;
+	event_stop(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet), Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize, Papi_actions_HevcDecoder_DecodingPictureBuffer[1].counterValues, -1);
+	papi_output_HevcDecoder_DecodingPictureBuffer = fopen("papi-output/papi_output_HevcDecoder_DecodingPictureBuffer.csv","a+");
+	fprintf(papi_output_HevcDecoder_DecodingPictureBuffer,
+		"\"%s\";\"%s\";\"%lu\"\n",
+		"HevcDecoder_DecodingPictureBuffer", Papi_actions_HevcDecoder_DecodingPictureBuffer[1].action_id,
+		Papi_actions_HevcDecoder_DecodingPictureBuffer[1].counterValues[0]);
+	fclose(papi_output_HevcDecoder_DecodingPictureBuffer);
 
 	rate_IsReadOrNewSlc += 1;
 	rate_PicSize += 2;
@@ -1137,6 +1167,8 @@ static void isNewSlice() {
 }
 static void isNewSlice_aligned() {
 
+	/* Here goes PAPI init action code */
+	event_start(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet), -1);
 	u8 isRead;
 	u16 picWidthInPix;
 	u16 picHeightInPix;
@@ -1165,6 +1197,13 @@ static void isNewSlice_aligned() {
 	read_end_PicSize();
 	index_Poc += 1;
 	index_IsPicSlc += 1;
+	event_stop(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet), Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize, Papi_actions_HevcDecoder_DecodingPictureBuffer[1].counterValues, -1);
+	papi_output_HevcDecoder_DecodingPictureBuffer = fopen("papi-output/papi_output_HevcDecoder_DecodingPictureBuffer.csv","a+");
+	fprintf(papi_output_HevcDecoder_DecodingPictureBuffer,
+		"\"%s\";\"%s\";\"%lu\"\n",
+		"HevcDecoder_DecodingPictureBuffer", Papi_actions_HevcDecoder_DecodingPictureBuffer[1].action_id,
+		Papi_actions_HevcDecoder_DecodingPictureBuffer[1].counterValues[0]);
+	fclose(papi_output_HevcDecoder_DecodingPictureBuffer);
 
 	rate_IsReadOrNewSlc += 1;
 	rate_PicSize += 2;
@@ -1174,15 +1213,15 @@ static void isNewSlice_aligned() {
 static i32 isSchedulable_isNewPict() {
 	i32 result;
 	u8 isRead;
-	i16 poc;
 	u8 isPicSlc;
+	i16 poc;
 	i16 local_currIdx;
 	i32 tmp_if;
 	i16 tmp_pocRef;
 
 	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
-	poc = tokens_Poc[(index_Poc + (0)) % SIZE_Poc];
 	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
+	poc = tokens_Poc[(index_Poc + (0)) % SIZE_Poc];
 	local_currIdx = currIdx;
 	if (local_currIdx == -1) {
 		tmp_if = 0;
@@ -1343,21 +1382,21 @@ static void isNewPict_aligned() {
 }
 static i32 isSchedulable_isNewPict_lastPict() {
 	i32 result;
+	u8 isRead;
 	u8 isPicSlc;
 	u8 noOutputOfPriorPicsFlag;
 	u8 spsNumReorderPics;
 	u8 picOutputFlag;
 	u8 videoSequenceId;
-	u8 isRead;
 	i16 local_currIdx;
 	i8 local_lastIdx;
 
+	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
 	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
 	noOutputOfPriorPicsFlag = tokens_ReorderPics[(index_ReorderPics + (0)) % SIZE_ReorderPics];
 	spsNumReorderPics = tokens_ReorderPics[(index_ReorderPics + (1)) % SIZE_ReorderPics];
 	picOutputFlag = tokens_ReorderPics[(index_ReorderPics + (2)) % SIZE_ReorderPics];
 	videoSequenceId = tokens_ReorderPics[(index_ReorderPics + (3)) % SIZE_ReorderPics];
-	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
 	local_currIdx = currIdx;
 	local_lastIdx = lastIdx;
 	result = local_currIdx != -1 && local_lastIdx == -1 && videoSequenceId > 1 && isPicSlc == 0 && isRead == 0;
@@ -2969,6 +3008,38 @@ static void checkIsNewPict_isFalse() {
 
 void HevcDecoder_DecodingPictureBuffer_initialize(schedinfo_t *si) {
 	int i = 0;
+	/* Papify initialization */
+	mkdir("papi-output", 0777);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer = malloc(sizeof(papi_action_s) * 2);
+	papi_output_HevcDecoder_DecodingPictureBuffer = fopen("papi-output/papi_output_HevcDecoder_DecodingPictureBuffer.csv","w");
+
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].action_id = malloc(strlen("getPix")+1);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].action_id = "getPix";
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize = 1;
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSet = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSet[0] = PAPI_TOT_INS;
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet = malloc(sizeof(int) * Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet = PAPI_NULL;
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[0].counterValues = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].action_id = malloc(strlen("isNewSlice")+1);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].action_id = "isNewSlice";
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize = 1;
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSet = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSet[0] = PAPI_TOT_INS;
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet = malloc(sizeof(int) * Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize);
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet = PAPI_NULL;
+	Papi_actions_HevcDecoder_DecodingPictureBuffer[1].counterValues = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize);
+
+	fprintf(papi_output_HevcDecoder_DecodingPictureBuffer,"Actor; Action; PAPI_TOT_INS\n");
+	fclose(papi_output_HevcDecoder_DecodingPictureBuffer);
+	event_init();
+
+	printf("Creating eventlist for action getPix in actor HevcDecoder_DecodingPictureBuffer\n");
+	event_create_eventList(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventSet), Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSetSize, Papi_actions_HevcDecoder_DecodingPictureBuffer[0].eventCodeSet, -1);
+	printf("Creating eventlist for action isNewSlice in actor HevcDecoder_DecodingPictureBuffer\n");
+	event_create_eventList(&(Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventSet), Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSetSize, Papi_actions_HevcDecoder_DecodingPictureBuffer[1].eventCodeSet, -1);
+	/* End of Papify initialization */
+
 	write_RefSample();
 	/* Set initial state to current FSM state */
 	_FSM_state = my_state_IsFirstNewPic;

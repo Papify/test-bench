@@ -10,6 +10,9 @@
 #include "scheduler.h"
 #include "dataflow.h"
 #include "cycle.h"
+#include "eventLib.h"
+FILE* papi_output_HevcDecoder_InterPrediction;
+papi_action_s *Papi_actions_HevcDecoder_InterPrediction;
 
 #define SIZE 8192
 
@@ -1538,6 +1541,8 @@ static i32 isSchedulable_getWeightDenom_skip() {
 
 static void getWeightDenom_skip() {
 
+	/* Here goes PAPI init action code */
+	event_start(&(Papi_actions_HevcDecoder_InterPrediction[0].eventSet), -1);
 	u8 local_wpIdc;
 	i32 idxL0;
 	u8 tmp_numRefIdxLxAct;
@@ -1560,6 +1565,13 @@ static void getWeightDenom_skip() {
 	}
 
 	// Update ports indexes
+	event_stop(&(Papi_actions_HevcDecoder_InterPrediction[0].eventSet), Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSetSize, Papi_actions_HevcDecoder_InterPrediction[0].counterValues, -1);
+	papi_output_HevcDecoder_InterPrediction = fopen("papi-output/papi_output_HevcDecoder_InterPrediction.csv","a+");
+	fprintf(papi_output_HevcDecoder_InterPrediction,
+		"\"%s\";\"%s\";\"%lu\"\n",
+		"HevcDecoder_InterPrediction", Papi_actions_HevcDecoder_InterPrediction[0].action_id,
+		Papi_actions_HevcDecoder_InterPrediction[0].counterValues[0]);
+	fclose(papi_output_HevcDecoder_InterPrediction);
 
 }
 static i32 isSchedulable_getWeightLX_launch() {
@@ -3950,6 +3962,8 @@ static i32 isSchedulable_getAllSamples_done() {
 
 static void getAllSamples_done() {
 
+	/* Here goes PAPI init action code */
+	event_start(&(Papi_actions_HevcDecoder_InterPrediction[1].eventSet), -1);
 	u8 compPuIdxMax[2];
 	u8 local_isBiPredOrLx;
 	u8 local_PRED_L1;
@@ -4081,6 +4095,13 @@ static void getAllSamples_done() {
 	jLoop = 0;
 
 	// Update ports indexes
+	event_stop(&(Papi_actions_HevcDecoder_InterPrediction[1].eventSet), Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSetSize, Papi_actions_HevcDecoder_InterPrediction[1].counterValues, -1);
+	papi_output_HevcDecoder_InterPrediction = fopen("papi-output/papi_output_HevcDecoder_InterPrediction.csv","a+");
+	fprintf(papi_output_HevcDecoder_InterPrediction,
+		"\"%s\";\"%s\";\"%lu\"\n",
+		"HevcDecoder_InterPrediction", Papi_actions_HevcDecoder_InterPrediction[1].action_id,
+		Papi_actions_HevcDecoder_InterPrediction[1].counterValues[0]);
+	fclose(papi_output_HevcDecoder_InterPrediction);
 
 }
 static i32 isSchedulable_sendCu_launch() {
@@ -4244,6 +4265,38 @@ static void sendCu_done() {
 
 void HevcDecoder_InterPrediction_initialize(schedinfo_t *si) {
 	int i = 0;
+	/* Papify initialization */
+	mkdir("papi-output", 0777);
+	Papi_actions_HevcDecoder_InterPrediction = malloc(sizeof(papi_action_s) * 2);
+	papi_output_HevcDecoder_InterPrediction = fopen("papi-output/papi_output_HevcDecoder_InterPrediction.csv","w");
+
+	Papi_actions_HevcDecoder_InterPrediction[0].action_id = malloc(strlen("getWeightDenom_skip")+1);
+	Papi_actions_HevcDecoder_InterPrediction[0].action_id = "getWeightDenom_skip";
+	Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSetSize = 1;
+	Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSet = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSetSize);
+	Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSet[0] = PAPI_TOT_INS;
+	Papi_actions_HevcDecoder_InterPrediction[0].eventSet = malloc(sizeof(int) * Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSetSize);
+	Papi_actions_HevcDecoder_InterPrediction[0].eventSet = PAPI_NULL;
+	Papi_actions_HevcDecoder_InterPrediction[0].counterValues = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSetSize);
+	Papi_actions_HevcDecoder_InterPrediction[1].action_id = malloc(strlen("getAllSamples_done")+1);
+	Papi_actions_HevcDecoder_InterPrediction[1].action_id = "getAllSamples_done";
+	Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSetSize = 1;
+	Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSet = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSetSize);
+	Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSet[0] = PAPI_TOT_INS;
+	Papi_actions_HevcDecoder_InterPrediction[1].eventSet = malloc(sizeof(int) * Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSetSize);
+	Papi_actions_HevcDecoder_InterPrediction[1].eventSet = PAPI_NULL;
+	Papi_actions_HevcDecoder_InterPrediction[1].counterValues = malloc(sizeof(unsigned long) * Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSetSize);
+
+	fprintf(papi_output_HevcDecoder_InterPrediction,"Actor; Action; PAPI_TOT_INS\n");
+	fclose(papi_output_HevcDecoder_InterPrediction);
+	event_init();
+
+	printf("Creating eventlist for action getWeightDenom_skip in actor HevcDecoder_InterPrediction\n");
+	event_create_eventList(&(Papi_actions_HevcDecoder_InterPrediction[0].eventSet), Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSetSize, Papi_actions_HevcDecoder_InterPrediction[0].eventCodeSet, -1);
+	printf("Creating eventlist for action getAllSamples_done in actor HevcDecoder_InterPrediction\n");
+	event_create_eventList(&(Papi_actions_HevcDecoder_InterPrediction[1].eventSet), Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSetSize, Papi_actions_HevcDecoder_InterPrediction[1].eventCodeSet, -1);
+	/* End of Papify initialization */
+
 	write_PredSample();
 	/* Set initial state to current FSM state */
 	_FSM_state = my_state_GetPartMode;
