@@ -1,0 +1,85 @@
+Performing C++ SOURCE FILE Test check_cxx_compiler_flag__march_merom failed with the following output:
+Change Dir: /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec792280872/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec792280872.dir/build.make CMakeFiles/cmTryCompileExec792280872.dir/build
+make[1]: Entering directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec792280872.dir/src.cxx.o
+/usr/bin/c++    -Dcheck_cxx_compiler_flag__march_merom   -march=merom -o CMakeFiles/cmTryCompileExec792280872.dir/src.cxx.o -c /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/src.cxx
+/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/src.cxx:1:0: error: bad value (merom) for -march= switch
+make[1]: *** [CMakeFiles/cmTryCompileExec792280872.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec792280872/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test check_cxx_compiler_flag__mno_avx2 failed with the following output:
+Change Dir: /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1038503916/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1038503916.dir/build.make CMakeFiles/cmTryCompileExec1038503916.dir/build
+make[1]: Entering directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1038503916.dir/src.cxx.o
+/usr/bin/c++    -Dcheck_cxx_compiler_flag__mno_avx2   -mno-avx2 -o CMakeFiles/cmTryCompileExec1038503916.dir/src.cxx.o -c /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: error: unrecognized command line option ‘-mno-avx2’
+make[1]: Leaving directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+make[1]: *** [CMakeFiles/cmTryCompileExec1038503916.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec1038503916/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec758835942/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec758835942.dir/build.make CMakeFiles/cmTryCompileExec758835942.dir/build
+make[1]: Entering directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec758835942.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec758835942.dir/CheckSymbolExists.c.o   -c /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec758835942
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec758835942.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec758835942.dir/CheckSymbolExists.c.o  -o cmTryCompileExec758835942 -rdynamic 
+CMakeFiles/cmTryCompileExec758835942.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec758835942] Error 1
+make[1]: Leaving directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec758835942/fast] Error 2
+
+File /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec262775490/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec262775490.dir/build.make CMakeFiles/cmTryCompileExec262775490.dir/build
+make[1]: Entering directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+/usr/local/bin/cmake -E cmake_progress_report /home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec262775490.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec262775490.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec262775490
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec262775490.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec262775490.dir/CheckFunctionExists.c.o  -o cmTryCompileExec262775490 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec262775490] Error 1
+make[1]: Leaving directory `/home/aarias/Desktop/test-bench/HEVC/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec262775490/fast] Error 2
+
+

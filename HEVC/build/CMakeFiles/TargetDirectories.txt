@@ -1,0 +1,4 @@
+/home/aarias/Desktop/test-bench/HEVC/build/src/CMakeFiles/Top_mpegh_part2_main.dir
+/home/aarias/Desktop/test-bench/HEVC/build/libs/orcc-native/CMakeFiles/orcc-native.dir
+/home/aarias/Desktop/test-bench/HEVC/build/libs/orcc-runtime/CMakeFiles/orcc-runtime.dir
+/home/aarias/Desktop/test-bench/HEVC/build/libs/roxml/CMakeFiles/roxml.dir
