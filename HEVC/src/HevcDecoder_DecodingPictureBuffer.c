@@ -1098,15 +1098,15 @@ static void getPix_aligned() {
 }
 static i32 isSchedulable_isNewSlice() {
 	i32 result;
-	u8 isPicSlc;
 	i16 poc;
+	u8 isPicSlc;
 	u8 isRead;
 	i16 local_currIdx;
 	i32 tmp_if;
 	i16 tmp_pocRef;
 
-	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
 	poc = tokens_Poc[(index_Poc + (0)) % SIZE_Poc];
+	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
 	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
 	local_currIdx = currIdx;
 	if (local_currIdx == -1) {
@@ -1212,16 +1212,16 @@ static void isNewSlice_aligned() {
 }
 static i32 isSchedulable_isNewPict() {
 	i32 result;
-	u8 isRead;
-	u8 isPicSlc;
 	i16 poc;
+	u8 isPicSlc;
+	u8 isRead;
 	i16 local_currIdx;
 	i32 tmp_if;
 	i16 tmp_pocRef;
 
-	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
-	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
 	poc = tokens_Poc[(index_Poc + (0)) % SIZE_Poc];
+	isPicSlc = tokens_IsPicSlc[(index_IsPicSlc + (0)) % SIZE_IsPicSlc];
+	isRead = tokens_IsReadOrNewSlc[(index_IsReadOrNewSlc + (0)) % SIZE_IsReadOrNewSlc];
 	local_currIdx = currIdx;
 	if (local_currIdx == -1) {
 		tmp_if = 0;
@@ -1848,18 +1848,18 @@ static void getMvInfo_launch_aligned() {
 }
 static i32 isSchedulable_getMvInfo_skip() {
 	i32 result;
-	i16 poc;
 	i32 mvX;
 	i32 mvY;
+	i16 poc;
 	i32 local_isBiPred;
 	u8 local_numPocRef;
 	i16 local_lastPocRef;
 	i32 tmp_lastMvRef;
 	i32 tmp_lastMvRef0;
 
-	poc = tokens_PocRef[(index_PocRef + (0)) % SIZE_PocRef];
 	mvX = tokens_Mv[(index_Mv + (0)) % SIZE_Mv];
 	mvY = tokens_Mv[(index_Mv + (1)) % SIZE_Mv];
+	poc = tokens_PocRef[(index_PocRef + (0)) % SIZE_PocRef];
 	local_isBiPred = isBiPred;
 	local_numPocRef = numPocRef;
 	local_lastPocRef = lastPocRef;
