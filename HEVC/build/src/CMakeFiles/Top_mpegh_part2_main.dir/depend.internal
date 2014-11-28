@@ -38,6 +38,7 @@ src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DBFilter_GenerateBs.c.o
  /home/aarias/Desktop/test-bench/HEVC/src/HevcDecoder_DBFilter_GenerateBs.c
  libs/config.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o
+ ../libs/orcc-native/include/eventLib.h
  ../libs/orcc-native/include/thread.h
  ../libs/orcc-runtime/include/cycle.h
  ../libs/orcc-runtime/include/dataflow.h
@@ -48,8 +49,11 @@ src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o
  ../libs/orcc-runtime/include/types.h
  ../libs/orcc-runtime/include/util.h
  /home/aarias/Desktop/test-bench/HEVC/src/HevcDecoder_DecodingPictureBuffer.c
+ /usr/local/include/papi.h
+ /usr/local/include/papiStdEventDefs.h
  libs/config.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o
+ ../libs/orcc-native/include/eventLib.h
  ../libs/orcc-native/include/thread.h
  ../libs/orcc-runtime/include/cycle.h
  ../libs/orcc-runtime/include/dataflow.h
@@ -60,6 +64,8 @@ src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o
  ../libs/orcc-runtime/include/types.h
  ../libs/orcc-runtime/include/util.h
  /home/aarias/Desktop/test-bench/HEVC/src/HevcDecoder_InterPrediction.c
+ /usr/local/include/papi.h
+ /usr/local/include/papiStdEventDefs.h
  libs/config.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_IntraPrediction.c.o
  ../libs/orcc-native/include/thread.h

@@ -510,7 +510,7 @@ OPENCV_INCLUDE_DIR_HIGHGUI-ADVANCED:INTERNAL=1
 OPENCV_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
-SDL_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread;-lpthread
+SDL_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread;-lpthread;-lpthread
 //ADVANCED property for variable: USE_AVX
 USE_AVX-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: USE_AVX2

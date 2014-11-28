@@ -37,6 +37,7 @@ src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DBFilter_GenerateBs.c.o: ../
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DBFilter_GenerateBs.c.o: ../src/HevcDecoder_DBFilter_GenerateBs.c
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DBFilter_GenerateBs.c.o: libs/config.h
 
+src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../libs/orcc-native/include/eventLib.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../libs/orcc-native/include/thread.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../libs/orcc-runtime/include/cycle.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../libs/orcc-runtime/include/dataflow.h
@@ -47,8 +48,11 @@ src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: .
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../libs/orcc-runtime/include/types.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../libs/orcc-runtime/include/util.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: ../src/HevcDecoder_DecodingPictureBuffer.c
+src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: /usr/local/include/papi.h
+src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: /usr/local/include/papiStdEventDefs.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_DecodingPictureBuffer.c.o: libs/config.h
 
+src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs/orcc-native/include/eventLib.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs/orcc-native/include/thread.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs/orcc-runtime/include/cycle.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs/orcc-runtime/include/dataflow.h
@@ -59,6 +63,8 @@ src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs/orcc-runtime/include/types.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../libs/orcc-runtime/include/util.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: ../src/HevcDecoder_InterPrediction.c
+src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: /usr/local/include/papi.h
+src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: /usr/local/include/papiStdEventDefs.h
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_InterPrediction.c.o: libs/config.h
 
 src/CMakeFiles/Top_mpegh_part2_main.dir/HevcDecoder_IntraPrediction.c.o: ../libs/orcc-native/include/thread.h
